@@ -43,12 +43,23 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "pdp",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        home: "home@http://localhost:3000/remoteEntry.js"
+      },
       exposes: {},
+      /*All of the libraries that are shared from this page*/
       shared: {
+        // Share all the dependencies by looking at the package,json
         ...deps,
         react: {
+          // singleton: true => there can be only one React on a page, at a time
+          /* This is important to React as it does have some data at the library level, and it is singleton in 
+          nature + multiple instances of React in the smae page can/will break the app */
+          /* Webpack does and manages the code sharing, which is why the receiving packet is as small as the 
+          chunk of code being shared => here Header is shared just for <1KB. The dependencies for the code 
+          are brought in, only when & where the shared code is imported */
           singleton: true,
+          // Overwrite the React 
           requiredVersion: deps.react,
         },
         "react-dom": {
