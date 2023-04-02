@@ -13,6 +13,7 @@ module.exports = {
 
   devServer: {
     port: 3001,
+    /*Any route not served by a static asset will render the same app/page*/ 
     historyApiFallback: true,
   },
 
