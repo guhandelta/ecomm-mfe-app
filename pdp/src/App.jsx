@@ -7,12 +7,14 @@ import Header from "home/Header";
 import Footer from "home/Footer";
 import PDPContent from "./PDPContent";
 
+// PDP app is hostin the Header an Footer pages from Home
+
 // import SafeComponent from "./SafeComponent";
 
 
 import "./index.scss";
 
-/* THe component is wrapped within an error broundary to analyze and handle the error here in the os React, and
+/* The component is wrapped within an error broundary to analyze and handle the error here in the os React, and
 appropriate measures can be used in case of any other frameworks to handle any issues, like missing props...etc*/
 
 const App = () => (
