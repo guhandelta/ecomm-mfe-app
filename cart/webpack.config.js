@@ -55,7 +55,6 @@ module.exports = {
         // Exposing the Login and Minicart to other apps
         "./Login" : "./src/Login.jsx",
         "./MiniCart" : "./src/MiniCart.jsx",
-
       },
       shared: {
         ...deps,

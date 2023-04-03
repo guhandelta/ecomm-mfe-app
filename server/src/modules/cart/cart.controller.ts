@@ -47,7 +47,7 @@ export class CartController {
   }
 
   @Post()
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   /* This statement says that the req body has an id of the elementm that the user intends to add, and 
   return the new-updated cart*/
   async create(@Request() req, @Body() { id }: { id: string }): Promise<Cart> {

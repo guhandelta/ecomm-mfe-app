@@ -45,7 +45,10 @@ module.exports = {
       name: "pdp",
       filename: "remoteEntry.js",
       remotes: {
-        home: "home@http://localhost:3000/remoteEntry.js"
+        home: "home@http://localhost:3000/remoteEntry.js",
+        // Adding a route to pdp when the pdp used internally, where the app loops back to itself
+         pdp: "pdp@http://localhost:3001/remoteEntry.js",
+         cart: "cart@http://localhost:3002/remoteEntry.js"
       },
       exposes: {},
       /*All of the libraries that are shared from this page*/

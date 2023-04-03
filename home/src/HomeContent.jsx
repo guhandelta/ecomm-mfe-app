@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { getProducts, currency } from './products'
+import { addToCart, useLoggedIn } from 'cart/cart'
 
 export default function HomeContent(){
 

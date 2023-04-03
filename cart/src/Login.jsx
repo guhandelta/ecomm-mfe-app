@@ -26,8 +26,8 @@ export default function Login(){
                 style={{
                     width: 300,
                     top: "2rem",
-                    background: "white"
-                    // left: -250,
+                    background: "white",
+                    left: -250
                 }} 
             >
                 <input 
