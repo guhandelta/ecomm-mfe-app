@@ -12,7 +12,7 @@ import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import products, { Product } from '../../products'
 
 interface CartItem extends Product{
-  // CartItem will extent the Product data, with an additional param of quantity
+  // CartItem will extend the Product data, with an additional param of quantity
   quantity: number;
 }
 
@@ -50,22 +50,23 @@ export class CartController {
   @UseGuards(JwtAuthGuard)
   /* This statement says that the req body has an id of the elementm that the user intends to add, and 
   return the new-updated cart*/
-  async create(@Request() req, @Body() { id }: {id: string}): Promise<Cart> {
+  async create(@Request() req, @Body() { id }: { id: string }): Promise<Cart> {
     const cart = this.carts[req.user.userId];
     const cartItem = cart.cartItems.find(
       // Checking if the item already exists in the cart
-      cartItem => cartItem.id === parseInt(id)
-    )
-    if(cartItem){
+    (cartItem) => cartItem.id === parseInt(id),
+    );
+    if (cartItem) {
       cartItem.quantity += 1;
-    } else{
+    } else {
       cart.cartItems.push({
-        ...products.find(product => product.id === parseInt(id)),
+        ...products.find((product) => product.id === parseInt(id)),
         quantity: 1,
       });
-    };
+    }
     return cart;
   }
+  
 
   @Delete()
   @UseGuards(JwtAuthGuard)

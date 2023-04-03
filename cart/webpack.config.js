@@ -46,10 +46,17 @@ module.exports = {
       remotes: {
         home: "home@http://localhost:3000/remoteEntry.js",
         pdp: "pdp@http://localhost:3001/remoteEntry.js",
-        // Adding a route to cart when teh cart used internally, where the app loops back to itself
+        // Adding a route to cart when the cart used internally, where the app loops back to itself
         cart: "cart@http://localhost:3002/remoteEntry.js"
       },
-      exposes: {},
+      exposes: {
+        // To subscribe toe the JWT and the cart
+        "./cart" : "./src/cart.js",
+        // Exposing the Login and Minicart to other apps
+        "./Login" : "./src/Login.jsx",
+        "./MiniCart" : "./src/MiniCart.jsx",
+
+      },
       shared: {
         ...deps,
         react: {

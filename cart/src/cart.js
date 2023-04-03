@@ -49,7 +49,6 @@ export const clearCart = () =>
             "Content-Type": "application/json",
             "Authorization": `Bearer ${jwt.value}` // simple get call with the JWT value added in the req
         },
-        body: JSON.stringify({ id }),
     })  // response hold the contents of the cart
         .then(res => res.json())
         .then(() =>{ 
@@ -78,7 +77,7 @@ export const login = (username, password) =>
         return data.access_token;
     });
 
-export function useLoggedin(){
+export function useLoggedIn(){
     const [loggedIn, setLoggedIn] = useState(!!jwt.value);   
     // !! will corece the value to a boolean 
     useEffect(()=>{

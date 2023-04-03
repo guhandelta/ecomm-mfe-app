@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 
-import { login, useLoggedin } from './cart'
+import { login, useLoggedIn } from './cart'
+import { useEffect } from 'react';
 
 export default function Login(){
 
-    const loggedIn = useLoggedin(); // get the logged in state
+    const loggedIn = useLoggedIn(); // get the logged in state
     const [showLogin, setShowLogin] = useState(false);
 
     const [username, setUsername] = useState("Sally");
     const [password, setPassword] = useState("123");
 
+    // useEffect(()=> login("maria", "123"), [])
+
     // if logged in, don't display anything
     if(loggedIn) return null;
-
   return (
     <>
         <span onClick={() => setShowLogin(!showLogin)}>
