@@ -12,6 +12,7 @@ import PDPContent from "./PDPContent";
 // import SafeComponent from "./SafeComponent";
 
 
+import "remixicon/fonts/remiXicon.css";
 import "./index.scss";
 
 /* The component is wrapped within an error broundary to analyze and handle the error here in the os React, and

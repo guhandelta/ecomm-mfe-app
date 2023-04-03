@@ -33,7 +33,7 @@ const initialCart = (indexes:number[]): Cart =>({
 export class CartController {
   private carts: Record<number, Cart> = {
     // Just to make the testing easier, a sample cart for sally and maria are created as a private var
-    1: initialCart([2, 4, 6]), 
+    1: initialCart([2, 4, 5]), 
     2: initialCart([1, 3]),
   };
 
